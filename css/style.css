@@ -1,0 +1,1293 @@
+/* reset all margin and padding */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Generic */
+
+body {
+    background-color:  #005e9e;
+    font-size: 15pt;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    color: #222222;
+    height: 100%;
+    margin: 0 0 3em 0;
+}
+
+
+main{
+   background-color:  #68cfff;
+   width: 70%;
+   height: 100%;
+   margin: 1em auto 1em auto;
+   border-radius: 1em;
+   min-height: 600px;
+   min-width: 800px;
+   max-width: 1000px;
+}
+
+h3 {
+    color: rgb(22, 143, 241);
+    font-size: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-weight: normal;
+}
+
+.gameScreen {
+    min-height: 600px;
+    min-width: 800px;
+    height: 90%;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+section p, section h2 {
+    margin: 20px 40px 20px 40px;
+}
+
+#mainHeading, #congratulationsMessage {
+    position: absolute;
+    font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(77, 2, 2);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+#mainHeading {
+    left: 70%;
+    top: 15%;
+}
+
+#congratulationsMessage {
+    left: 0%;
+    top: -05%;
+    background-color: #ffe7b3;
+    padding: 1em;
+}
+
+main h1:not(#mainHeading) {
+    width: 100%;
+    text-align: center;
+    background-color: #74561f;
+    padding: 0.2em 0 0.2em 0;
+    font-size: 1.5em;
+}
+
+ol, ul, a {
+    list-style: none;
+    text-decoration: none;
+}
+
+.icon {
+    transition: transform .8s ease;
+}
+
+.icon img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+.popup h2 {
+    width: 100%;
+    text-align: center;
+    color:#696969;
+    font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    margin: 0 0 0.5em 0;
+
+}
+
+.popup img {
+    margin: auto;
+    display: block;
+}
+
+.apiImage {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#modalNewspaper img, #modalPortrait img {
+    max-height: 550px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.hint {
+    font-weight: bold;
+}
+
+#referenceList {
+    list-style: disc;
+    margin: 1em 1em 0 3em;
+}
+
+#referenceList li {
+    margin: 0.5em;
+}
+
+/* Train image and animation */
+#home .train-image {
+    content: url('../images/redtrain.png');
+    position: absolute;
+    width: 40%;
+    bottom: 5%;
+    left: -50%;
+    z-index: 2;
+    animation-name: trainMoveHome;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+}
+
+#year1901 .train-image {
+    content: url('../images/redtrain.png');
+    position: absolute;
+    width: 30%;
+    top: 40%;
+    left: -50%;
+    z-index: 1;
+    animation-name: trainMove1901;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    cursor: pointer;
+}
+
+#year1914 .train-image {
+    content: url('../images/redtrain.png');
+    position: absolute;
+    width: 80%;
+    bottom: 40%;
+    left: -100%;
+    z-index: 2;
+    animation-name: trainMove1914;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    cursor: pointer;
+}
+
+#year1916 .train-image {
+    content: url('../images/redtrain.png');
+    position: absolute;
+    width: 10%;
+    top: 55%;
+    left: -50%;
+    z-index: 2;
+    transform: rotate(12deg);
+    animation-name: trainMove1916;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    cursor: pointer;
+}
+
+@keyframes trainMoveHome {
+    0%, 10%   {transform: scaleX(1); left: -55%}
+    40%, 50%  {transform: scaleX(1); left: 130%;}
+    50%, 60%  {transform: scaleX(-1); left: 130%;}
+    90%, 100%  {transform: scaleX(-1); left: -55%;}
+}
+
+@keyframes trainMove1901 {
+    0%, 10%   {left: -55%}
+    90%, 100%  {left: 130%;}
+}
+
+@keyframes trainMove1914 {
+    0%, 10%   {left: -100%}
+    90%, 100%  {left: 130%;}
+}
+
+@keyframes trainMove1916 {
+    0%    {left: -20%; top: -10%; transform: rotate(20deg);}
+    50%     {left: 20%; top: 5%; transform: rotate(0deg);}
+    50%     {left: 30%; top: 5%; transform: rotate(0deg);}
+    60%     {left: 40%; top: 5%; transform: rotate(0deg);}
+    100%  {left: 80%; top: -10%; transform: rotate(-20deg);}
+}
+
+#congratulations .train-image {
+    content: url('../images/redtrain.png');
+    position: absolute;
+    width: 55%;
+    top: 55%;
+    left: -50%;
+    z-index: 2;
+    animation-name: trainMoveAndStop;
+    animation-duration: 5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes trainMoveAndStop {
+    0%   {left: -55%}
+    100%  {left: 20%;}
+}
+
+/* Backgrounds */
+#home {
+    background-image: url(../images/home-background.png);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#year1901 {
+    background-image: url(../images/year1901.png);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#year1914 {
+    background-image: url(../images/stage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  
+}
+
+#year1916 {
+    background-image: url(../images/year1916.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#congratulations {
+    background-image: url(../images/endbackground.jpg);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Header and Nav */
+
+header > div {
+    width: 100%;
+    margin: 1em 0 0 0;
+    background-color: #0095da;
+    cursor: pointer;
+}
+
+header h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    text-align: center;
+    font-family: 'Rye', 'Times New Roman', Times, serif;
+}
+
+header nav {
+    width:100%;
+    display: block;
+    background-color: #0095da;
+}
+
+header nav ul {
+    list-style: none;
+
+}
+
+header nav > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 1em 1em 1em;
+}
+
+header nav ul li a  {
+    padding: 0.6em;
+    margin: 0;
+    width: 8em;
+    text-align: center;
+    transition: all 0.5s ease;
+    display: block;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+}
+
+header nav ul li  {
+    position: relative;
+}
+
+header nav ul li a:hover  {
+    background-color: white;
+    color: black;
+}
+
+header nav ul li:hover .dropdown {
+    display: block;
+}
+
+.active  {
+    background-color: #34bb4a;
+    color: white;
+}
+
+header nav .dropdown {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 2.7em;
+    left: 0em;
+    background-color: #005e9e;
+}
+
+/* Menu */
+.menubar {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    position: relative;
+}
+
+.menubar:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.menu {
+    width: 33%;
+    background-color: rgb(112, 83, 38);
+
+    border: 5px solid rgb(63, 43, 6);
+    position: relative;
+ }
+
+ .menu h3 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 1em;
+ }
+
+ .navigation, #inventory, #learning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2em;
+
+ }
+
+ .inventoryItem, .learningItem{
+    cursor: pointer;
+    margin: 0 0.5em 0 0.5em;
+ }
+
+ .learningItem {
+     display: none;
+ }
+
+
+#endgame {
+    position: absolute;
+    right: 100%;
+    bottom: 0%;
+    padding: 1em;
+    cursor: pointer;
+    z-index: 50;
+
+ }
+
+ .endGameComplete {
+     animation-name: endGameButtonFlash;
+     animation-duration: 1s;
+     animation-timing-function: ease;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+
+ }
+
+
+@keyframes endGameButtonFlash {
+    0%      {transform: scale(1);}
+    100%    {transform: scale(1.2);}
+}
+
+
+#inventory img:hover, #learning img:hover, #endgame:hover, #languageBookMinigamePage:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.yearbuttons {
+    display: block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgb(227, 235, 156);
+    text-align: center;
+    background-color: rgb(36, 36, 36);
+    cursor: pointer;
+    padding: 1.1em 0.7em 1.1em 0.7em;
+    margin: 0.2em 0.5em 0.2em 0.5em;
+    border-radius:100%;
+    box-shadow: 2px 2px 4px black;
+ }
+
+.yearbuttons.current{
+    color: white;
+    background-color: rgb(39, 121, 22);
+ }
+
+
+.yearbuttons:hover{
+    color: black;
+    background-color: white;
+ }
+
+
+#guide {
+    position: absolute;
+    left: 100%;
+    bottom: 0%;
+    padding: 1em 3em 1em 1em;
+    cursor: pointer;
+    z-index: 50;
+}
+
+#guide .speechBubble {
+    display: none;
+    background-color: white;
+    width: 140%;
+    height: 7em;
+    margin: 0 0 1em 0;
+    border-radius: 1em;
+    position: relative;
+}
+
+#guideCongratsPage .speechBubble {
+    display: none;
+    background-color: white;
+    width: 100%;
+    height: 2em;
+    margin: 0 0 1em 0;
+    border-radius: 1em;
+    position: relative;
+}
+
+#musicianCongratsPage .speechBubble {
+    display: none;
+    background-color: white;
+    width: 80%;
+    height: 5em;
+    margin: 0 0 1em 0;
+    border-radius: 1em;
+    position: relative;
+}
+
+#photographerCongratsPage .speechBubble {
+    display: none;
+    background-color: white;
+    width: 40%;
+    height: 4em;
+    margin: 0 0 1em 0;
+    border-radius: 1em;
+    position: relative;
+}
+
+#indigenousCongratsPage .speechBubble {
+    display: none;
+    background-color: white;
+    width: 50%;
+    height: 2em;
+    margin: 0 0 0 0;
+    border-radius: 1em;
+    position: relative;
+}
+
+.speechBubble:after {
+	content: '';
+    position: absolute;
+    left: 52%;
+	bottom: 0;
+    margin-left: -0.25em;
+	margin-bottom: -0.5em;
+    border-top: 0.5em solid white;
+	border-right: 0.5em solid transparent;
+}
+
+#indigenousCongratsPage .speechBubble:after {
+	content: '';
+    position: absolute;
+    left: 72%;
+	bottom: 0;
+    margin-left: -0.25em;
+	margin-bottom: -0.5em;
+    border-top: 0.5em solid white;
+	border-right: 0.5em solid transparent;
+}
+
+.speechBubble p {
+    padding: 0.7em;
+    font-size: 0.8em;
+}
+
+
+/* Image layout */
+
+#year1901 #newspaper {
+    position: absolute;
+    left: 40%;
+    top: 65%;
+    z-index: 1;
+}
+
+#year1916 #newspaper {
+    position: absolute;
+    left: 40%;
+    bottom: 2%;
+    z-index: 1;
+}
+
+#camera {
+    position: absolute;
+    right: 15%;
+    bottom: 10%;
+    transform: scaleX(-1);
+}
+
+#photographer {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    z-index: 1;
+    transform: scaleX(-1);
+}
+
+#paperpile {
+    position: absolute;
+    right: 12%;
+    bottom: 0%;
+    transform: scaleX(-1);
+}
+
+#indigenous {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    z-index: 2;
+}
+
+#languageBook {
+    position: absolute;
+    left: 20%;
+    top: 80%;
+}
+
+#year1901 #dog {
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+}
+
+#year1916 #dog {
+    position: absolute;
+    left: 60%;
+    bottom: 5%;
+}
+
+#boat {
+    position: absolute;
+    left: 40%;
+    bottom: 50%;
+}
+
+#bench {
+    position: absolute;
+    left: 2%;
+    bottom: 10%;
+    transform: rotate(7deg) scaleX(-1);
+}
+
+#pigeon {
+    position: absolute;
+    left: 5%;
+    top: 52%;
+}
+
+
+#year1914 #newspaper{
+    position: absolute;
+    bottom: 50%;
+    left: 55%;
+}
+#year1901 #newspaper {
+    position: absolute;
+    left: 40%;
+    top: 65%;
+    z-index: 1;
+}
+#musician {
+    position: absolute;
+    bottom: 45%;
+    left: 20%;
+}
+#presenter {
+    position: absolute;
+    bottom: 45%;
+    left: 40%;
+}
+#guitar {
+    position: absolute;
+    bottom: 45%;
+    left: 70%;
+}
+#map {
+    position: absolute;
+    bottom: 35%;
+    left: 90%;
+}
+#patron {
+    position: absolute;
+    bottom: -2%;
+    left: 15%;
+    z-index: 2;
+}
+
+#musicianCongratsPage {
+    position: absolute;
+    bottom: 00%;
+    left: 75%;
+    z-index: 2;
+}
+
+#photographerCongratsPage {
+    position: absolute;
+    bottom: 30%;
+    left: 35%;
+    z-index: 1;
+}
+
+#indigenousCongratsPage {
+    position: absolute;
+    bottom: 28%;
+    left: 55%;
+    z-index: 1;
+}
+
+#guideCongratsPage {
+    position: absolute;
+    bottom: 5%;
+    left: 15%;
+    z-index: 2;
+}
+
+
+/* Home screen specific */
+#howToPlay .center {
+    width: 100%;
+    text-align: center;
+}
+
+#howToPlay img {
+    margin: 1em auto 1em auto;
+    display: block;
+}
+
+#howToPlay p {
+    margin: 0.5em 0 0.5em 0;
+}
+
+/* 1901 page specific */
+.languageListTable, .languageListTable th, .languageListTable td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 1em;
+}
+
+.languageListTable {
+    width: 100%;
+}
+ 
+
+/* End page specific */
+#congratulations h2 {
+    text-align: center;
+    margin: 2em 0 2em 0;
+}
+
+.streamers {
+    position: absolute;
+    top: -50%;
+    animation-name: streamers;
+    animation-duration: 4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    z-index: 5;
+}
+
+#streamer1 {
+    left: 0%;
+    animation-delay: 3s;
+}
+
+#streamer2 {
+    left: 20%;
+    animation-delay: 1.5s;
+}
+
+#streamer3 {
+    left: 40%;
+}
+
+#streamer4 {
+    left: 60%;
+    animation-delay: 1s;
+}
+
+#streamer5 {
+    left: 80%;
+    animation-delay: 2.5s;
+}
+
+@keyframes streamers {
+   0%      {top: -50%;}
+   100%    {top: 150%;}
+}
+
+
+/* Buttons */
+.navigation-rowCentered {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+.button {
+    display: block;
+    padding: 0.6em;
+    margin: 1em;
+    background-color: #34bb4a;
+    border-radius: 1em;
+    border-color: #208030;
+    cursor: pointer;
+    width: 10em;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+    align-self: flex-end;
+}
+
+.button:hover {
+    background-color: #46eb62;
+    color: white;
+}
+
+#modalMore button {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#returnToPresentButton {
+    display:none;
+}
+
+#returnToPresentText {
+    width: 50%;
+    margin: 1em auto 1em auto;
+    border-radius: 1em;
+    color:white;
+    padding: 1em;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #0095da;
+    color: white;
+    padding: 1em;
+    font-size: 0.7em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+
+
+/* Minigame generic */
+.instructions {
+    padding: 1em;
+}
+.answers, .portraitsArray {
+    display: none;
+}
+
+.answerCorrectNumber {
+    width:100%;
+    text-align: center;
+    color: #acff93;
+    font-weight: bold;
+    font-size: 1.5em;
+    height: 1.5em;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+.minigameFeedback.incorrect {
+    color: rgb(104, 0, 0);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    text-align: center;
+}
+
+.minigameFeedback.correct {
+    color: rgb(2, 105, 20);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    text-align: center;
+}
+
+/* Mini game wordmatch specfic */
+.minigame-wordmatch {
+    display: flex;
+    width: 80%;
+    margin: 0em auto 0.5em auto;
+    padding: 1em;
+    direction: row;
+    justify-content: center;
+    background-color: #dad894;
+    border-color: #74561f;
+    border-style: solid;
+    border-radius: 2em;
+
+}
+
+.minigame-wordmatch div {
+    text-align: center;
+    position: relative;
+    margin: 0 3em 0 3em;
+}
+
+.minigame-wordmatch li {
+    list-style-type: none;
+    margin: 1em;
+    padding: 1em;
+    background-color: #88e751;
+    border-radius: 1em;
+    width: 10em;
+    height: 1em;
+    cursor: pointer;
+    border-color: #3f7c2f;
+    border-width: 0.2em;
+    border-style: solid;
+    z-index: 2;
+}
+
+svg {
+    position: absolute;
+    top: 3em;
+    left: 13.5em;
+    z-index: 1;
+    stroke:#74561f;
+    stroke-width:5;
+}
+
+#languageBookMinigamePage {
+    position: absolute;
+    left: 100%;
+    bottom: 30%;
+    margin: 1em;
+    cursor: pointer;
+}
+
+/* Mini game maze specfic */
+#minigame-maze {
+    margin: 0.5em;
+}
+#mazeTable {
+    border-spacing: 0px;
+    margin: auto;
+    background-color: #3c2805;
+    border-collapse:collapse;
+    table-layout: fixed;
+}
+
+#mazeTable td {
+    width: 50px;
+    height: 50px;
+}
+
+.mazeCurrentNorth::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/arrow-north.png");
+}
+
+.mazeCurrentEast::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/arrow-east.png");
+}
+
+.mazeCurrentSouth::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/arrow-south.png");
+}
+
+.mazeCurrentWest::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/arrow-west.png");
+}
+
+.mazeFinish::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/paperscroll.png");
+}
+
+.north.east.south.west {
+    background-image: URL("../images/NESW.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.north.east.south {
+    background-image: URL("../images/NES.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.north.east.west {
+    background-image: URL("../images/NEW.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.north.south.west {
+    background-image: URL("../images/NSW.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.east.south.west {
+    background-image: URL("../images/ESW.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.north.east {
+    background-image: URL("../images/NE.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.north.south {
+    background-image: URL("../images/NS.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.north.west {
+    background-image: URL("../images/NW.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.east.south {
+    background-image: URL("../images/ES.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.east.west {
+    background-image: URL("../images/EW.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.south.west {
+    background-image: URL("../images/SW.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.north {
+    background-image: URL("../images/N.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.east {
+    background-image: URL("../images/E.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.south {
+    background-image: URL("../images/S.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+.west {
+    background-image: URL("../images/W.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+
+/* Mini game memory specfic */
+
+.memoryItem {
+    background-color: black;
+    border: white solid 0.5em;
+    border-radius: 1em;
+    width: 170px;
+    height: 261px;
+    padding: -1em;
+    cursor: pointer;
+    margin: 0.5em;
+}
+
+.memoryItem .hidden {
+    display: none;
+}
+
+#memoryItemsContainer {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+/* modal window */
+.popup{
+    display: none;
+    position: fixed;
+    max-height: 100%;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    margin:auto;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.content{
+    background-color: #fefefe;
+    margin: 2em auto 2em auto;
+    padding: 2em;
+    border: 1px solid #888;
+    width: 100%;
+    color: black;
+    max-width: 850px;
+}
+
+.exit{
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.exit:hover, .exit:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    margin: auto;
+    color: red;
+}
+
+
+/* styling of disabled things */
+
+.disabled {
+    background-color:#999999;
+    color: rgb(255, 255, 255);
+    cursor: default
+}
+
+body main .disabled:hover {
+    background-color: #999999;
+    color: rgb(255, 255, 255);
+}
+
+/* loading spinner */
+
+
+#spinner {
+	position: fixed;
+
+	border: 3em solid #e9e9e9;
+	border-top: 3em double #152086;
+	border-bottom: 3em double #152086;
+	border-radius: 100%;
+
+	width: 10em;
+	height: 10em;
+	top: 50%;
+	left: 50%;
+    margin-top: -8em;
+    margin-left: -8em;
+	animation: rotate 2s linear infinite;
+	z-index: -1;
+
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease;
+}
+
+.loading #loaderDiv {
+	opacity: 0.50;
+	visibility: visible;
+	z-index: 50;
+}
+
+.loading #spinner {
+	visibility: visible;
+	opacity: 1;
+	z-index: 50;
+}
+
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* select a train modal */
+
+input[type=text] {
+    width: 50%;
+    padding: 1em;
+    font-size: 1.5em;
+}
+
+#trainSelect div {
+    margin: auto;
+    text-align: center;
+    margin: 0 auto 1em auto;
+}
+
+#trainSelect h3, #trainSelect input, #trainSelect button {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+div #redtrain input {
+    background:url(../images/redtrain.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor:pointer;
+    width: 100%;
+    height: 75px;
+    border: none;
+    
+}
+
+div #bluetrain input {
+    background:url(../images/bluetrain.png) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor:pointer;
+    width: 100%;
+    height: 75px;
+    border: none;
+}
+
+div #greentrain input {
+    background:url(../images/greentrain.png) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor:pointer;
+    width: 100%;
+    height: 75px;
+    border: none;
+}
+
+#modalSelectTrain .trainSelected {
+    border: 2px solid green;
+
+}
+
+
+/* contact form */
+
+#contactPage {
+    padding: 2em;
+}
+
+#contact-form label{
+    padding: 12px 5px 3px 2px;
+    display:inline-block;
+}
+
+#contact-body{
+    margin-top:0px;
+    vertical-align:top;
+    width:60%;
+}
+
+#contact-form input[type=text],#contact-form input[type=email],textarea{
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    text-align:left;
+    display:table;
+    font-size: 1em;
+}
+
+
+#contact-form input[type=text],#contact-form input[type=email],#contact-form textarea{
+        font-family:'PT Serif', serif; 
+}
+
+#contact-form .errorMessage {
+    color: rgb(138, 0, 0);
+    margin: 0.5em 0 0.5em 0;
+    font-weight: bold;
+}
+
+#contact-form .navigationMessage {
+    font-weight: bold;
+    margin: 1em 0 0.5em 0;
+}
+
+/* about page */
+
+#teamSection {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#teamSection div {
+    width: 40%;
+    margin: 0.5em 1.5em 0.5em 1.5em;
+}
+
+#teamSection p {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+
